@@ -1,0 +1,4123 @@
+{
+  "uuid": "a553b8a9-e851-494d-a733-6ad7452f2633",
+  "lastMigration": 33,
+  "name": "精算決済API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "aa58a39e-1d64-48a1-9d58-c3a1a6030237",
+      "type": "http",
+      "documentation": "利用料モデル登録API",
+      "method": "post",
+      "endpoint": "api/v1/fee-model",
+      "responses": [
+        {
+          "uuid": "50d92afe-7fd1-4190-b592-fdc8aad2a0d4",
+          "body": "{\n  \"created_at\": \"{{faker 'date.recent' 365}}\",\n  \"updated_at\": \"{{faker 'date.recent' 365}}\",\n  \"valid_from\": \"{{faker 'date.recent' 365}}\",\n  \"is_active\": true,\n  \"version\": 1,\n  \"storage_type\": \"{{oneOf (array 'provider_env' 'settlement_service')}}\",\n  \"storage_key\": \"\",\n  \"valid_to\": \"{{faker 'date.recent' 365}}\",\n  \"provider_id\": \"\",\n  \"consumer_id\": \"\",\n  \"data_id\": \"\",\n  \"payment_service_id\": \"{{faker 'string.uuid'}}\",\n  \"fee_model_name\": \"\",\n  \"price\": \"\",\n  \"tax_classification\": \"{{oneOf (array 'taxable' 'non_taxable')}}\",\n  \"tax_rate\": \"\",\n  \"fee_model_id\": \"{{faker 'string.uuid'}}\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "aeacb2ca-7e3f-4c24-8da5-d0e94fc2fb21",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "パラメータエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "437829b2-ce34-4aa2-bd41-12da259a6e46",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ff700ba9-99df-47ab-a7c0-116cdcac14ab",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "106d5926-9039-4c5d-b099-591ccd207085",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "bb6858d3-30ee-4c27-a7a8-963ee0c55cc2",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0583d16c-fede-4cee-9526-c6adaea90e8b",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b006985d-d851-4cfc-b111-442796686954",
+      "type": "http",
+      "documentation": "利用料モデル一覧取得API",
+      "method": "get",
+      "endpoint": "api/v1/fee-model",
+      "responses": [
+        {
+          "uuid": "116be73f-887e-4fe1-b1bd-c531e8adb4f4",
+          "body": "{\n  \"models\": [\n    {\n      \"created_at\": \"{{faker 'date.recent' 365}}\",\n      \"updated_at\": \"{{faker 'date.recent' 365}}\",\n      \"valid_from\": \"{{faker 'date.recent' 365}}\",\n      \"is_active\": true,\n      \"version\": 1,\n      \"storage_type\": \"{{oneOf (array 'provider_env' 'settlement_service')}}\",\n      \"storage_key\": \"\",\n      \"valid_to\": \"{{faker 'date.recent' 365}}\",\n      \"provider_id\": \"\",\n      \"consumer_id\": \"\",\n      \"data_id\": \"\",\n      \"payment_service_id\": \"{{faker 'string.uuid'}}\",\n      \"fee_model_name\": \"\",\n      \"price\": \"\",\n      \"tax_classification\": \"{{oneOf (array 'taxable' 'non_taxable')}}\",\n      \"tax_rate\": \"\",\n      \"fee_model_id\": \"{{faker 'string.uuid'}}\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            },
+            {
+              "key": "ETag",
+              "value": "\"abc123etagvalue\""
+            },
+            {
+              "key": "Last-Modified",
+              "value": "Wed, 30 Jul 2025 01:00:00 GMT"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "d688e2a5-3fe2-4a54-8622-acce0693520d",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "パラメータエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            },
+            {
+              "key": "ETag",
+              "value": "\"abc123etagvalue\""
+            },
+            {
+              "key": "Last-Modified",
+              "value": "Wed, 30 Jul 2025 01:00:00 GMT"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "62dcd1e0-9df8-4a0a-a2d8-4e91b857b885",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            },
+            {
+              "key": "ETag",
+              "value": "\"abc123etagvalue\""
+            },
+            {
+              "key": "Last-Modified",
+              "value": "Wed, 30 Jul 2025 01:00:00 GMT"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "c23516e6-955c-451e-8a93-ae143346349e",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            },
+            {
+              "key": "ETag",
+              "value": "\"abc123etagvalue\""
+            },
+            {
+              "key": "Last-Modified",
+              "value": "Wed, 30 Jul 2025 01:00:00 GMT"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "4dd516eb-2203-4688-9f1e-9d3c17534543",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            },
+            {
+              "key": "ETag",
+              "value": "\"abc123etagvalue\""
+            },
+            {
+              "key": "Last-Modified",
+              "value": "Wed, 30 Jul 2025 01:00:00 GMT"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "09ad1fc2-e271-42b4-972c-8ae0d8ee07c2",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            },
+            {
+              "key": "ETag",
+              "value": "\"abc123etagvalue\""
+            },
+            {
+              "key": "Last-Modified",
+              "value": "Wed, 30 Jul 2025 01:00:00 GMT"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1c0ccb6c-e9e4-4dc9-ab04-05479b92362c",
+      "type": "http",
+      "documentation": "利用料モデル変更API",
+      "method": "put",
+      "endpoint": "api/v1/fee-model/:fee_model_id",
+      "responses": [
+        {
+          "uuid": "826eeb0c-e569-4c8a-9527-3055b750a020",
+          "body": "{\n  \"created_at\": \"{{faker 'date.recent' 365}}\",\n  \"updated_at\": \"{{faker 'date.recent' 365}}\",\n  \"valid_from\": \"{{faker 'date.recent' 365}}\",\n  \"is_active\": true,\n  \"version\": 1,\n  \"storage_type\": \"{{oneOf (array 'provider_env' 'settlement_service')}}\",\n  \"storage_key\": \"\",\n  \"valid_to\": \"{{faker 'date.recent' 365}}\",\n  \"provider_id\": \"\",\n  \"consumer_id\": \"\",\n  \"data_id\": \"\",\n  \"payment_service_id\": \"{{faker 'string.uuid'}}\",\n  \"fee_model_name\": \"\",\n  \"price\": \"\",\n  \"tax_classification\": \"{{oneOf (array 'taxable' 'non_taxable')}}\",\n  \"tax_rate\": \"\",\n  \"fee_model_id\": \"{{faker 'string.uuid'}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "90094230-c0d3-44ac-837c-48f2d08e1881",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "パラメータエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ff77e6a0-57fa-4a7c-8032-59a2f60411fd",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "fea5b042-920d-41a9-aadd-6bcebacdd917",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "15f920ce-60e7-48ae-a3a0-d1695607c9f7",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "該当データなし",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "14393fac-d804-45eb-aa67-689e7e2cc40c",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ed4cfe89-21ce-49e1-9bc3-b63856db953c",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7e621842-f425-43fa-a0c0-afd94c385c21",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "cddfc019-d86e-4f2d-ab20-2747566c4727",
+      "type": "http",
+      "documentation": "利用料モデル削除API",
+      "method": "delete",
+      "endpoint": "api/v1/fee-model/:fee_model_id",
+      "responses": [
+        {
+          "uuid": "6ad2e027-dfc1-4595-adf2-bd36e8e40bca",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "01b1ec2a-c997-484e-8781-b1630db9a1c3",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "パラメータエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f7056406-4a4c-4ef6-ac85-cdf07d137c46",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "06ea85b8-bb82-4b7e-bc7e-5536fa2af374",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "03a9fa81-c30f-480e-8293-c74550c66c7e",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "該当データなし",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "c3d1bd49-c537-4929-a935-6f2c2947afa4",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e1cc9bd2-a093-40f5-bac0-c521e5782158",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "1591f70c-64f7-4583-a0d3-4a61c0599ded",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3cba0e72-4da7-4a11-ba0d-031f750f8c99",
+      "type": "http",
+      "documentation": "取引可否確認API",
+      "method": "post",
+      "endpoint": "api/v1/data-exchange/transaction/eligibility",
+      "responses": [
+        {
+          "uuid": "5cf29375-8929-4f6b-a4b8-548022b2a4ab",
+          "body": "{\n  \"status\": \"{{oneOf (array 'allowed' 'denied')}}\",\n  \"detail\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "30dac8c1-57b1-4dd6-80ce-7af51f0abd6f",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "リクエストエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "bd5eac6f-5097-4328-92da-3d6627db5524",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9721d06b-f154-480e-960f-cdbbc8feef8a",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "a7d9d0d8-28ea-4273-9db7-6ae2b2d34f67",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "データなし",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "1a4d6da3-9a3c-4ce5-8c22-7e50e63a7659",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "41bd8c4c-4cec-41ff-ba92-7fbbe99d41b4",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "5212c021-22c1-46ce-b64a-fef4f880341e",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "15b595f2-0783-4863-b825-373c4a7f8da3",
+      "type": "http",
+      "documentation": "データ交換状態登録API",
+      "method": "post",
+      "endpoint": "api/v1/data-exchange/status",
+      "responses": [
+        {
+          "uuid": "e30ad64e-f648-4263-b7d8-19d3de7145af",
+          "body": "{\n  \"status\": \"{{oneOf (array 'success' 'error')}}\",\n  \"detail\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "8e5d5198-1377-4bd9-998b-46a4f4080bd1",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "リクエストエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "21a88ed8-8d5e-4408-9be4-50c14dc2f514",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "39661bc8-4777-4a8e-8ab7-ed668eeabf52",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "df7754de-b5f2-4b0d-811a-ff3674dd666b",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "データなし",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "de82bf36-7a86-4a77-afa2-87b108f19d4b",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7006697a-466d-4565-bd55-484fcbbcce0e",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "07df6fe7-08fc-4b87-a7d1-8edaf4cd0f00",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5930dfb4-2d20-4cdf-b8cd-cad556c6162d",
+      "type": "http",
+      "documentation": "データ交換状態更新API",
+      "method": "put",
+      "endpoint": "api/v1/data-exchange/status",
+      "responses": [
+        {
+          "uuid": "7cb08ee7-6f44-44ad-8d55-70fd5a67e9ed",
+          "body": "{\n  \"status\": \"{{oneOf (array 'success' 'error')}}\",\n  \"detail\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "8644685b-2a2d-4082-a1d8-70ec9326cd09",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "リクエストエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "455a0bb5-c4a7-45f1-9483-565c53c086aa",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "eb13b83a-f045-4e3c-8653-66d6600b13eb",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "60fca78b-1b2b-49e0-9080-f13e2a5bf7a9",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "データなし",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "38352742-8612-4444-9ef7-d4da979c0c3d",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "5dc93c5a-f7b5-4854-a738-55dc4e81d4d7",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9ec0731b-3959-4f11-9ac7-fc80f62ff618",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "017d4d4e-e4fa-4426-8fb5-f5d71ba6f41f",
+      "type": "http",
+      "documentation": "取引可否確認API(利用料モデル無)",
+      "method": "post",
+      "endpoint": "api/v1/data-exchange/non-fee-model/transaction/eligibility",
+      "responses": [
+        {
+          "uuid": "72edf273-83ca-454e-acb2-25cafd34c786",
+          "body": "{\n  \"status\": \"{{oneOf (array 'allowed' 'denied')}}\",\n  \"detail\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9db697ca-6c07-4330-a29d-ae8b9c2f80a3",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "リクエストエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0f709ea6-2848-42b4-9d8d-84da20146b6d",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "e17d1cf9-a30f-4c1f-adff-ef79a8b25375",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7fa58818-8890-495e-8386-3a0fbd87b4e3",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "データなし",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "04e187e2-23c0-46e5-a123-763ad95a989a",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "001d4d84-3e6e-4aa9-bcea-f7936d5f9722",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "2be05a93-1e99-4dbe-8ed6-80b1b6878673",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b3343b0b-11e4-4c4c-9d49-73bbc181a284",
+      "type": "http",
+      "documentation": "データ交換取引金額確定用API(利用料モデル無)",
+      "method": "post",
+      "endpoint": "api/v1/data-exchange/non-fee-model/confirm",
+      "responses": [
+        {
+          "uuid": "d916dd6f-4631-4a99-94dc-955ec0118a74",
+          "body": "{\n  \"status\": \"{{oneOf (array 'success' 'error')}}\",\n  \"detail\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7e8065bb-337f-44a6-8c77-2be55831ad98",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "リクエストエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "d121b974-fa00-42e7-99cb-27d606f46670",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f9f5349d-82a4-496b-b54a-813adc19c603",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "18823903-5e09-4b30-8771-5be07e217455",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "データなし",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "aa7cac15-602b-45d8-b979-ba3e1d385293",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 409,
+          "label": "リソース競合エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "50b77f9a-ae11-458f-9ca4-de75b45c9c30",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0660b064-7ffb-4e11-91d4-510c9a74f938",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5fdb3bd5-1d2c-4b65-b99f-4ed8446bea70",
+      "type": "http",
+      "documentation": "決済状態取得API",
+      "method": "post",
+      "endpoint": "api/v1/data-exchange/settlement/transactions",
+      "responses": [
+        {
+          "uuid": "a3db1eb1-a4aa-46af-9a94-fdd9b1178ff4",
+          "body": "{\n  \"transactions\": [\n    {\n      \"transaction_id\": \"\",\n      \"tracking_id\": \"\",\n      \"external_transaction_id\": \"\",\n      \"provider_id\": \"\",\n      \"consumer_id\": \"\",\n      \"data_id\": \"\",\n      \"snapshot_price\": \"\",\n      \"snapshot_tax_rate\": \"\",\n      \"snapshot_tax_classification\": \"\",\n      \"calculated_amount\": \"\",\n      \"consumer_exchange_status\": \"\",\n      \"provider_exchange_status\": \"\",\n      \"l2_http_status\": \"\",\n      \"order_details\": \"\",\n      \"request_date\": \"{{faker 'date.recent' 365}}\",\n      \"payment_deadline\": \"{{faker 'date.recent' 365}}\",\n      \"paid_at\": \"{{faker 'date.recent' 365}}\",\n      \"created_at\": \"{{faker 'date.recent' 365}}\",\n      \"updated_at\": \"{{faker 'date.recent' 365}}\"\n    }\n  ],\n  \"total_count\": {{faker 'number.int' max=99999}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9d28983b-4d56-476f-aed0-f692a25ec6c0",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "パラメータエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "8bad48cb-c9df-43a4-b4cf-9ac29600311c",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "25829f68-51cc-4251-8cc8-4522a699d98a",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7eb36bd0-821e-4631-bfa0-f7589f8df232",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ec621d55-ed94-4b95-84ce-0fe138fdd791",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4d059986-7eb5-4fd2-add4-3c712c0b15d3",
+      "type": "http",
+      "documentation": "支払予定額取得API",
+      "method": "post",
+      "endpoint": "api/v1/payment",
+      "responses": [
+        {
+          "uuid": "7ef1b4c7-113a-44f3-b8e7-0b30aab16514",
+          "body": "{\n  \"payment_details\": [\n    {\n      \"tracking_id\": \"\",\n      \"fee_model_id\": \"\",\n      \"payment_service_id\": \"\",\n      \"provider_id\": \"\",\n      \"consumer_id\": \"\",\n      \"data_id_list\": [\n        \"\"\n      ],\n      \"completed_at\": \"{{faker 'date.recent' 365}}\",\n      \"amount\": {{faker 'number.int' max=99999}},\n      \"tax_rate\": {{faker 'number.int' max=99999}}\n    }\n  ],\n  \"total_amount\": {{faker 'number.int' max=99999}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "be13f023-c519-40b2-bf4b-e9342123e033",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "パラメータエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "80364d1b-d92c-4803-980b-a1b89a8ea3ce",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "49a9c5db-d305-4756-ae15-fda11337f0e3",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "760d75b9-200b-4dcc-b197-6e8c1ea9ccd5",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "5ac13ee9-6640-4f79-8f8f-e35e84d4b885",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "e5b4fb7d-027c-4105-bbad-91fa92b4b0db",
+      "type": "http",
+      "documentation": "請求予定額取得API",
+      "method": "post",
+      "endpoint": "api/v1/billing",
+      "responses": [
+        {
+          "uuid": "61bcedf5-a130-4219-ba22-569f333d0e36",
+          "body": "{\n  \"billing_details\": [\n    {\n      \"tracking_id\": \"\",\n      \"fee_model_id\": \"\",\n      \"payment_service_id\": \"\",\n      \"provider_id\": \"\",\n      \"consumer_id\": \"\",\n      \"data_id_list\": [\n        \"\"\n      ],\n      \"completed_at\": \"{{faker 'date.recent' 365}}\",\n      \"amount\": {{faker 'number.int' max=99999}},\n      \"tax_rate\": {{faker 'number.int' max=99999}}\n    }\n  ],\n  \"total_amount\": {{faker 'number.int' max=99999}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "成功",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9b39386c-1f3b-46a6-81a8-6c8dd690f797",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "パラメータエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "a0abf03f-9191-49de-bb58-908443d3b48b",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "認証エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0030386f-ba1b-4673-9e55-6039b13c6995",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "認可エラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "4da6bb62-62bc-433d-99f3-862c7acefd70",
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"\"\n      ],\n      \"msg\": \"\",\n      \"type\": \"\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 422,
+          "label": "Validation Error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "7ae7cd21-f0f8-4e74-9ba5-d85b318a3706",
+          "body": "{\n  \"type\": \"\",\n  \"title\": \"\",\n  \"detail\": \"\",\n  \"status\": {{faker 'number.int' max=99999}},\n  \"instance\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "サーバエラー",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "X-TrackingId",
+              "value": "550e8400-e29b-41d4-a716-446655440000"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=63072000; includeSubDomains"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "aa58a39e-1d64-48a1-9d58-c3a1a6030237"
+    },
+    {
+      "type": "route",
+      "uuid": "b006985d-d851-4cfc-b111-442796686954"
+    },
+    {
+      "type": "route",
+      "uuid": "1c0ccb6c-e9e4-4dc9-ab04-05479b92362c"
+    },
+    {
+      "type": "route",
+      "uuid": "cddfc019-d86e-4f2d-ab20-2747566c4727"
+    },
+    {
+      "type": "route",
+      "uuid": "3cba0e72-4da7-4a11-ba0d-031f750f8c99"
+    },
+    {
+      "type": "route",
+      "uuid": "15b595f2-0783-4863-b825-373c4a7f8da3"
+    },
+    {
+      "type": "route",
+      "uuid": "5930dfb4-2d20-4cdf-b8cd-cad556c6162d"
+    },
+    {
+      "type": "route",
+      "uuid": "017d4d4e-e4fa-4426-8fb5-f5d71ba6f41f"
+    },
+    {
+      "type": "route",
+      "uuid": "b3343b0b-11e4-4c4c-9d49-73bbc181a284"
+    },
+    {
+      "type": "route",
+      "uuid": "5fdb3bd5-1d2c-4b65-b99f-4ed8446bea70"
+    },
+    {
+      "type": "route",
+      "uuid": "4d059986-7eb5-4fd2-add4-3c712c0b15d3"
+    },
+    {
+      "type": "route",
+      "uuid": "e5b4fb7d-027c-4105-bbad-91fa92b4b0db"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

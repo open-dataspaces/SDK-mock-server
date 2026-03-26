@@ -1,0 +1,1643 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8090
+  description: Generated server url
+paths:
+  /auth/password/{operator_id}:
+    put:
+      tags:
+      - password-controller
+      operationId: changePassword
+      parameters:
+      - name: operator_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PasswordRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /auth/clients/{client_id}:
+    put:
+      tags:
+      - clients-controller
+      operationId: putClients
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PutClientsRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+    delete:
+      tags:
+      - clients-controller
+      operationId: deleteClient
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+  /account/operator/{operator_id}:
+    get:
+      tags:
+      - operator-controller
+      operationId: getOperator
+      parameters:
+      - name: operator_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    put:
+      tags:
+      - operator-controller
+      operationId: putOperator
+      parameters:
+      - name: operator_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /account/operator/status/{operator_id}:
+    put:
+      tags:
+      - operator-controller
+      operationId: putOperatorStatus
+      parameters:
+      - name: operator_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PutOperatorStatusRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /account/operator/plant/{plant_id}:
+    get:
+      tags:
+      - plant-controller
+      operationId: getPlant
+      parameters:
+      - name: plant_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+    put:
+      tags:
+      - plant-controller
+      operationId: putPlant
+      parameters:
+      - name: plant_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /account/operator/plant/status/{plant_id}:
+    put:
+      tags:
+      - plant-controller
+      operationId: putPlantStatus
+      parameters:
+      - name: plant_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PutPlantStatusRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /authz/stores:
+    post:
+      tags:
+      - authorization-controller
+      operationId: postStores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /authz/stores/{store_id}/access/v1/evaluation:
+    post:
+      tags:
+      - authorization-controller
+      operationId: postApi
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /authz/stores/{store_id}/authorization-models:
+    get:
+      tags:
+      - authorization-controller
+      operationId: getApi
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+    post:
+      tags:
+      - authorization-controller
+      operationId: postApi_1
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /authz/stores/{store_id}/write:
+    post:
+      tags:
+      - authorization-controller
+      operationId: postApi_2
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /authz/stores/{store_id}/read:
+    post:
+      tags:
+      - authorization-controller
+      operationId: postApi_3
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /authz/stores/{store_id}/access/v1/evaluations:
+    post:
+      tags:
+      - authorization-controller
+      operationId: postApi_4
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+  /auth/url:
+    post:
+      tags:
+      - auth-url-controller
+      operationId: url
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthUrlRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseAuthUrlResponse"
+  /auth/token:
+    post:
+      tags:
+      - auth-token-controller
+      operationId: accessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthTokenRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseAuthTokenResponse"
+  /auth/token/revoke:
+    post:
+      tags:
+      - token-revoke-controller
+      operationId: revoke
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TokenRevokeRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseTokenRevokeResponse"
+  /auth/token/refresh:
+    post:
+      tags:
+      - token-refresh-controller
+      operationId: refresh
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TokenRefreshRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseTokenRefreshResponse"
+  /auth/token/password:
+    post:
+      tags:
+      - token-password-controller
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TokenPasswordRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseTokenPasswordResponse"
+  /auth/token/introspect:
+    post:
+      tags:
+      - token-introspection-controller
+      operationId: tokenIntrospection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TokenIntrospectionRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseTokenIntrospectionResponse"
+  /auth/token/client:
+    post:
+      tags:
+      - token-client-controller
+      operationId: client
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TokenClientRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseTokenClientResponse"
+  /auth/password/url:
+    post:
+      tags:
+      - password-url-controller
+      operationId: url_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PasswordUrlRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponsePasswordUrlResponse"
+  /auth/clients:
+    post:
+      tags:
+      - clients-controller
+      operationId: postClients
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostClientsRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponsePostClientsResponse"
+  /auth/clients/secret/{client_uuid}:
+    post:
+      tags:
+      - clients-controller
+      operationId: getClientSecret
+      parameters:
+      - name: client_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponsePostClientSecretResponse"
+  /auth/apikey/verify:
+    post:
+      tags:
+      - api-key-controller
+      operationId: verifyAPIKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/APIKeyVerifyRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseAPIKeyVerifyResponse"
+  /account/user:
+    post:
+      tags:
+      - user-controller
+      operationId: postUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponsePostUserResponse"
+  /account/operator:
+    post:
+      tags:
+      - operator-controller
+      operationId: postOperator
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostOperatorRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponsePostOperatorResponse"
+  /account/operator/plant:
+    post:
+      tags:
+      - plant-controller
+      operationId: postPlant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostPlantRequest"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponsePlantResponse"
+  /account/operator/plant/list:
+    post:
+      tags:
+      - plant-controller
+      operationId: listPlant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseListGetPlantResponse"
+  /account/operator/list:
+    post:
+      tags:
+      - operator-controller
+      operationId: listOperator
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseListGetOperatorResponse"
+  /authz/stores/{store_id}:
+    get:
+      tags:
+      - authorization-controller
+      operationId: getApi_1
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/APIResponseObject"
+    delete:
+      tags:
+      - authorization-controller
+      operationId: deleteStore
+      parameters:
+      - name: store_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    PasswordRequest:
+      type: object
+      properties:
+        old_password:
+          type: string
+          maxLength: 20
+          minLength: 0
+          pattern: "^$|^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*\\(\\\
+            )])[A-Za-z0-9!@#\\$%\\^&\\*\\(\\)]+$"
+        new_password:
+          type: string
+          maxLength: 20
+          minLength: 8
+          pattern: "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*\\(\\)])[A-Za-z0-9!@#\\\
+            $%\\^&\\*\\(\\)]+$"
+      required:
+      - new_password
+      - old_password
+    PutClientsRequest:
+      type: object
+      properties:
+        flow_type:
+          type: string
+          minLength: 1
+          pattern: ^(authorization_code|client_credentials)$
+        name:
+          type: string
+          maxLength: 255
+          minLength: 0
+        description:
+          type: string
+          maxLength: 255
+          minLength: 0
+        operator_id:
+          type: string
+          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        open_system_id:
+          type: string
+          maxLength: 255
+          minLength: 1
+        redirect_uris:
+          type: array
+          items:
+            type: string
+            maxLength: 255
+            minLength: 1
+            pattern: "^[^*%{}\\\\\\s\\p{Zs}\\p{Cc}]+$"
+      required:
+      - flow_type
+    APIResponseObject:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data: {}
+      required:
+      - data
+      - detail
+      - title
+      - type
+    PutOperatorStatusRequest:
+      type: object
+      properties:
+        updated_at:
+          type: string
+        effective_start_date:
+          type: string
+        effective_end_date:
+          type: string
+        deleted_flag:
+          type: boolean
+      required:
+      - updated_at
+    PutPlantStatusRequest:
+      type: object
+      properties:
+        updated_at:
+          type: string
+        effective_start_date:
+          type: string
+        effective_end_date:
+          type: string
+        deleted_flag:
+          type: boolean
+      required:
+      - updated_at
+    AuthUrlRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        redirect_uri:
+          type: string
+          maxLength: 255
+          minLength: 1
+        code_challenge:
+          type: string
+          minLength: 1
+      required:
+      - client_id
+      - code_challenge
+      - redirect_uri
+    APIResponseAuthUrlResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/AuthUrlResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    AuthUrlResponse:
+      type: object
+      properties:
+        url:
+          type: string
+      required:
+      - url
+    AuthTokenRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          minLength: 1
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        client_secret:
+          type: string
+          maxLength: 255
+          minLength: 1
+        redirect_uri:
+          type: string
+          maxLength: 255
+          minLength: 1
+        code_verifier:
+          type: string
+          minLength: 1
+      required:
+      - client_id
+      - client_secret
+      - code
+      - code_verifier
+      - redirect_uri
+    APIResponseAuthTokenResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/AuthTokenResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    AuthTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
+        token_type:
+          type: string
+        not_before_policy:
+          type: integer
+          format: int32
+        scope:
+          type: string
+        refresh_token:
+          type: string
+        refresh_expires_in:
+          type: integer
+          format: int64
+        id_token:
+          type: string
+      required:
+      - access_token
+      - id_token
+      - refresh_token
+      - scope
+      - token_type
+    TokenRevokeRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        client_secret:
+          type: string
+          maxLength: 255
+          minLength: 1
+        refresh_token:
+          type: string
+          minLength: 1
+      required:
+      - client_id
+      - client_secret
+      - refresh_token
+    APIResponseTokenRevokeResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/TokenRevokeResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    TokenRevokeResponse:
+      type: object
+      properties:
+        active:
+          type: boolean
+    TokenRefreshRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        client_secret:
+          type: string
+          maxLength: 255
+          minLength: 1
+        refresh_token:
+          type: string
+          minLength: 1
+      required:
+      - client_id
+      - client_secret
+      - refresh_token
+    APIResponseTokenRefreshResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/TokenRefreshResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    TokenRefreshResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
+        token_type:
+          type: string
+        not_before_policy:
+          type: integer
+          format: int32
+        scope:
+          type: string
+        refresh_token:
+          type: string
+        refresh_expires_in:
+          type: integer
+          format: int64
+        id_token:
+          type: string
+      required:
+      - access_token
+      - id_token
+      - refresh_token
+      - scope
+      - token_type
+    TokenPasswordRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        client_secret:
+          type: string
+          maxLength: 255
+          minLength: 1
+        login_user_id:
+          type: string
+          maxLength: 255
+          minLength: 3
+          pattern: "^[a-z0-9_\\.\\-@]+$"
+        password:
+          type: string
+          maxLength: 20
+          minLength: 8
+          pattern: "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*\\(\\)])[A-Za-z0-9!@#\\\
+            $%\\^&\\*\\(\\)]+$"
+      required:
+      - client_id
+      - client_secret
+      - login_user_id
+      - password
+    APIResponseTokenPasswordResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/TokenPasswordResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    TokenPasswordResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
+        token_type:
+          type: string
+        not_before_policy:
+          type: integer
+          format: int64
+        scope:
+          type: string
+        refresh_token:
+          type: string
+        refresh_expires_in:
+          type: integer
+          format: int64
+    TokenIntrospectionRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        client_secret:
+          type: string
+          maxLength: 255
+          minLength: 1
+        access_token:
+          type: string
+          minLength: 1
+      required:
+      - access_token
+      - client_id
+      - client_secret
+    APIResponseTokenIntrospectionResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/TokenIntrospectionResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    TokenIntrospectionResponse:
+      type: object
+      properties:
+        active:
+          type: boolean
+        token_info: {}
+    TokenClientRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        client_secret:
+          type: string
+          maxLength: 255
+          minLength: 1
+      required:
+      - client_id
+      - client_secret
+    APIResponseTokenClientResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/TokenClientResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    TokenClientResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int64
+        token_type:
+          type: string
+        not_before_policy:
+          type: integer
+          format: int64
+        scope:
+          type: string
+    PasswordUrlRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+        redirect_uri:
+          type: string
+          maxLength: 255
+          minLength: 1
+        code_challenge:
+          type: string
+          minLength: 1
+      required:
+      - client_id
+      - code_challenge
+      - redirect_uri
+    APIResponsePasswordUrlResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/PasswordUrlResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    PasswordUrlResponse:
+      type: object
+      properties:
+        url:
+          type: string
+      required:
+      - url
+    PostClientsRequest:
+      type: object
+      properties:
+        flow_type:
+          type: string
+          minLength: 1
+          pattern: ^(authorization_code|client_credentials)$
+        client_id:
+          type: string
+          maxLength: 239
+          minLength: 1
+          pattern: "^[A-Za-z0-9_-]+$"
+        name:
+          type: string
+          maxLength: 255
+          minLength: 0
+        description:
+          type: string
+          maxLength: 255
+          minLength: 0
+        operator_id:
+          type: string
+          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        open_system_id:
+          type: string
+          maxLength: 255
+          minLength: 0
+        redirect_uris:
+          type: array
+          items:
+            type: string
+            maxLength: 255
+            minLength: 1
+            pattern: "^[^*%{}\\\\\\s\\p{Zs}\\p{Cc}]+$"
+      required:
+      - client_id
+      - flow_type
+    APIResponsePostClientsResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/PostClientsResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    PostClientsResponse:
+      type: object
+      properties:
+        client_uuid:
+          type: string
+        client_id:
+          type: string
+        enabled:
+          type: boolean
+        name:
+          type: string
+        description:
+          type: string
+        flow_type:
+          type: string
+        open_system_id:
+          type: string
+        operator_id:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+    APIResponsePostClientSecretResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/PostClientSecretResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    PostClientSecretResponse:
+      type: object
+      properties:
+        client_secret:
+          type: string
+    APIKeyVerifyRequest:
+      type: object
+      properties:
+        verify_apikey:
+          type: string
+          maxLength: 256
+          minLength: 1
+      required:
+      - verify_apikey
+    APIKeyVerifyResponse:
+      type: object
+      properties:
+        verify_result:
+          type: boolean
+    APIResponseAPIKeyVerifyResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/APIKeyVerifyResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    APIResponsePostUserResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/PostUserResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    PostUserResponse:
+      type: object
+      properties:
+        login_user_id:
+          type: string
+        operator_id:
+          type: string
+        password:
+          type: string
+    PostOperatorRequest:
+      type: object
+      properties:
+        login_user_id:
+          type: string
+          maxLength: 255
+          minLength: 3
+          pattern: "^[a-z0-9_\\.\\-@]+$"
+        operator_name:
+          type: string
+          maxLength: 255
+          minLength: 1
+        operator_address:
+          type: string
+          maxLength: 256
+          minLength: 1
+        open_operator_id:
+          type: string
+          maxLength: 20
+          minLength: 1
+          pattern: "^[a-zA-Z0-9]{1,20}$"
+        global_operator_id:
+          type: string
+          maxLength: 256
+          minLength: 0
+        effective_start_date:
+          type: string
+        effective_end_date:
+          type: string
+        create_password_flag:
+          type: boolean
+        password_temporary_flag:
+          type: boolean
+      required:
+      - login_user_id
+      - open_operator_id
+      - operator_address
+      - operator_name
+    APIResponsePostOperatorResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/PostOperatorResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    PostOperatorResponse:
+      type: object
+      properties:
+        login_user_id:
+          type: string
+        operator_id:
+          type: string
+        operator_name:
+          type: string
+        operator_address:
+          type: string
+        open_operator_id:
+          type: string
+        global_operator_id:
+          type: string
+        effective_start_date:
+          type: string
+          format: date
+        effective_end_date:
+          type: string
+          format: date
+        deleted_flag:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        password:
+          type: string
+    PostPlantRequest:
+      type: object
+      properties:
+        operator_id:
+          type: string
+          minLength: 1
+          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        plant_name:
+          type: string
+          maxLength: 256
+          minLength: 1
+        plant_address:
+          type: string
+          maxLength: 256
+          minLength: 1
+        open_plant_id:
+          type: string
+          maxLength: 26
+          minLength: 6
+          pattern: "^.*[0-9]{6}$"
+        global_plant_id:
+          type: string
+          maxLength: 256
+          minLength: 0
+        effective_start_date:
+          type: string
+        effective_end_date:
+          type: string
+      required:
+      - open_plant_id
+      - operator_id
+      - plant_address
+      - plant_name
+    APIResponsePlantResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          $ref: "#/components/schemas/PlantResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    PlantResponse:
+      type: object
+      properties:
+        plant_id:
+          type: string
+        operator_id:
+          type: string
+        plant_name:
+          type: string
+        plant_address:
+          type: string
+        open_plant_id:
+          type: string
+        global_plant_id:
+          type: string
+        effective_start_date:
+          type: string
+          format: date
+        effective_end_date:
+          type: string
+          format: date
+        deleted_flag:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - created_at
+      - effective_end_date
+      - effective_start_date
+      - open_plant_id
+      - operator_id
+      - plant_address
+      - plant_id
+      - plant_name
+      - updated_at
+    APIResponseListGetPlantResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/GetPlantResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    GetPlantResponse:
+      type: object
+      properties:
+        operator_id:
+          type: string
+        plant_id:
+          type: string
+        open_plant_id:
+          type: string
+        global_plant_id:
+          type: string
+        plant_name:
+          type: string
+        plant_address:
+          type: string
+        effective_start_date:
+          type: string
+          format: date
+        effective_end_date:
+          type: string
+          format: date
+        deleted_flag:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    APIResponseListGetOperatorResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/GetOperatorResponse"
+      required:
+      - data
+      - detail
+      - title
+      - type
+    GetOperatorResponse:
+      type: object
+      properties:
+        operator_id:
+          type: string
+        operator_name:
+          type: string
+        operator_address:
+          type: string
+        open_operator_id:
+          type: string
+        global_operator_id:
+          type: string
+        effective_start_date:
+          type: string
+          format: date
+        effective_end_date:
+          type: string
+          format: date
+        deleted_flag:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time

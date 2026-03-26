@@ -1,0 +1,17 @@
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate-openapi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: docker://openapitools/openapi-generator-cli
+        with:
+          args: validate -i ./apidoc/L3/api-docs.yaml
+      - uses: docker://openapitools/openapi-generator-cli
+        with:
+          args: validate -i ./apidoc/payment/openapi.json
