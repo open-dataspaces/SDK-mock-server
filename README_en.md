@@ -2,7 +2,16 @@
 
 ODS SDK for Onboarding - Mock server
 
+## Overview
+
 This project provides procedures and configuration files for running mock servers for ODS components using [Mockoon](https://mockoon.com), an open-source mock server development tool.
+
+## Prerequisites
+
+This repository provides mock servers for the following versions of the ODS components:
+
+* [Identity Component](https://github.com/open-dataspaces/L3-identity-component): [v1.0.0](https://github.com/open-dataspaces/L3-identity-component/tree/v1.0.0)
+* [Clearing and Payment Service](https://github.com/open-dataspaces/DCS-Payment): [v1.0.0](https://github.com/open-dataspaces/DCS-Payment/tree/v1.0.0)
 
 ## Preparation
 
