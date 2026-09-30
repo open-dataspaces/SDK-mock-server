@@ -40,8 +40,13 @@ mockoon-cli start --data ./mockoon-payment.json
 
 ## 定義ファイルについて
 
-- `mockoon-l3.json`: `apidoc/L3/api-docs.yaml` から生成
-- `mockoon-payment.json`: `apidoc/payment/openapi.json` から生成
+上で使用している定義ファイル (mockoon-l3.json, mockoon-payment.json) は、apidoc ディレクトリ内の OpenAPI Specification ドキュメントから生成されています。
+生成コマンドの実行例を以下に示します。なお実際は、生成後に名称やポート番号など軽微な変更を加えたものを本リポジトリで公開しています。
+
+```bash
+mockoon-cli import -i apidoc/L3/api-docs.yaml -o mockoon-l3.json -p
+mockoon-cli import -i apidoc/payment/openapi.json -o mockoon-payment.json -p
+```
 
 ## カスタマイズ方法
 
