@@ -7,6 +7,9 @@ ODS SDK for Onboarding - Mock server
 このプロジェクトでは、OSSのモックサーバー構築ツールである [Mockoon](https://mockoon.com/) を使用して、
 ODSコンポーネントのモックサーバーを実行するための手順や設定ファイルを提供します。
 
+本リポジトリのモックサーバは、L3（アイデンティティコンポーネント）および精算‧課⾦∕決済サービスの代わりとし
+て、SDK（クライアントライブラリ）の動作確認などに利⽤できます。[SDK-docker-compose](https://github.com/open-dataspaces/SDK-docker-compose) の mockserver で起動するモックサーバ（インダストリサービスの代替）とは役割が異なることにご注意ください。
+
 ## 前提条件
 
 本リポジトリでは、以下のバージョンの ODS コンポーネントのモックサーバを提供します。
