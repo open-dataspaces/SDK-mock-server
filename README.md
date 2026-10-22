@@ -14,12 +14,18 @@ ODSコンポーネントのモックサーバーを実行するための手順�
 * [アイデンティティコンポーネント](https://github.com/open-dataspaces/L3-identity-component): [v1.0.0](https://github.com/open-dataspaces/L3-identity-component/tree/v1.0.0)
 * [精算・課金／決済サービス](https://github.com/open-dataspaces/DCS-Payment): [v1.0.0](https://github.com/open-dataspaces/DCS-Payment/tree/v1.0.0)
 
+動作確認時の環境情報は以下のとおりです。
+
+* Node.js: v24.20.0
+* npm: 11.19.0
+* @mockoon/cli: 9.5.0
+
 ## 準備
 
 Mockoon CLI を、以下のコマンドでインストールしてください。
 
 ```bash
-npm install -g @mockoon/cli
+npm install -g @mockoon/cli@9.5.0
 ```
 
 ## モックサーバーの起動
@@ -40,8 +46,19 @@ mockoon-cli start --data ./mockoon-payment.json
 
 ## 定義ファイルについて
 
-- `mockoon-l3.json`: `apidoc/L3/api-docs.yaml` から生成
-- `mockoon-payment.json`: `apidoc/payment/openapi.json` から生成
+上で使用している定義ファイル (mockoon-l3.json, mockoon-payment.json) は、apidoc ディレクトリ内の OpenAPI Specification ドキュメントから生成されています。
+生成コマンドの実行例を以下に示します。
+
+```bash
+mockoon-cli import -i apidoc/L3/api-docs.yaml -o mockoon-l3.json -p
+mockoon-cli import -i apidoc/payment/openapi.json -o mockoon-payment.json -p
+```
+
+本リポジトリで公開している定義ファイルは、上述のコマンドで生成された JSON ファイルのうち、以下のプロパティに修正を加えたものです。
+また、生成された JSON の中でも UUID のプロパティは、設定される値が生成の都度変わります。
+
+* `name`: OpenAPI Specification 中での名称がわかりづらいものは、よりわかりやすい名前へと修正
+* `port`: 異なるモックサーバを同時に起動できるよう、重複しないポート番号に修正
 
 ## カスタマイズ方法
 
