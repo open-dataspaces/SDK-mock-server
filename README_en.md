@@ -13,7 +13,7 @@ The mock servers provided in this repository can be used as substitutes for the 
 This repository provides mock servers for the following versions of the ODS components:
 
 * [Identity Component](https://github.com/open-dataspaces/L3-identity-component): [v1.0.0](https://github.com/open-dataspaces/L3-identity-component/tree/v1.0.0)
-* [Clearing and Payment Service](https://github.com/open-dataspaces/DCS-Payment): [v1.0.0](https://github.com/open-dataspaces/DCS-Payment/tree/v1.0.0)
+* [Clearing and Billing/Payment Service](https://github.com/open-dataspaces/DCS-Payment): [v1.0.0](https://github.com/open-dataspaces/DCS-Payment/tree/v1.0.0)
 
 The environment used for verification is as follows:
 
